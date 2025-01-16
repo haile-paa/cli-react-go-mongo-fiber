@@ -1,0 +1,29 @@
+{
+  "name": "cli-react-go-mongo-fiber",
+  "version": "1.0.1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cli",
+    "node",
+    "project setup",
+    "react",
+    "go",
+    "mongo",
+    "fiber"
+  ],
+  "author": "Haileyesus Eyasu",
+  "license": "MIT",
+  "description": "A custom CLI tool to set up a full-stack project with React, Go, MongoDB, and Fiber.",
+  "bin": {
+    "create-yourproject": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/haile-paa/cli-react-go-mongo-fiber.git"
+  },
+  "homepage": "https://github.com/haile-paa/cli-react-go-mongo-fiber",
+  "dependencies": {}
+}
