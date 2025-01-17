@@ -1,6 +1,6 @@
-# CLI React Go Mongo Fiber Project Setup
+# CLI React, Go, MongoDB, TailwindCss, Fiber Project Setup
 
-This project setup script allows you to quickly create a full-stack application with React (frontend), Go (backend), MongoDB (database), and Fiber (Go web framework). It initializes the project folder structure, sets up the backend with Go and MongoDB, and creates the frontend with React, Vite, and Tailwind CSS.
+This project setup script allows you to quickly create a full-stack application with React (frontend),TailwindCss(style), Go (backend), MongoDB (database), and Fiber (Go web framework). It initializes the project folder structure, sets up the backend with Go and MongoDB, and creates the frontend with React, Vite, and Tailwind CSS.
 
 ## Prerequisites
 
