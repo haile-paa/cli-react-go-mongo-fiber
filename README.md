@@ -15,15 +15,18 @@ Make sure you have the following installed on your system:
 To use the setup script, run the following command:
 
 ```bash
-npm install -g cli-react-go-mongo-fiber
+npm install -g cli-react-go-mongo-fiber-v2
 ```
+
 Run the CLI to create a new project:
 
 ```bash
 create-my-project
 ```
+
 Project Structure
 After running the CLI, the following project structure will be created:
+
 ```bash
 <your-project-name>/
 ├── backend/
@@ -41,3 +44,4 @@ After running the CLI, the following project structure will be created:
 │       └── tailwind.config.js
 └── shared/
     └── utils/
+```
