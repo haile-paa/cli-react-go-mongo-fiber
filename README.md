@@ -36,12 +36,11 @@ After running the CLI, the following project structure will be created:
 │   ├── routes/
 │   └── main.go
 ├── frontend/
-│   ├── public/
-│   └── src/
-│       ├── App.jsx
-│       ├── index.css
-│       ├── main.jsx
-│       └── tailwind.config.js
-└── shared/
-    └── utils/
+   ├── public/
+   └── src/
+       ├── App.jsx
+       ├── index.css
+       ├── main.jsx
+       └── tailwind.config.js
+
 ```
