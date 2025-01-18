@@ -15,7 +15,7 @@ Make sure you have the following installed on your system:
 To use the setup script, run the following command:
 
 ```bash
-npm install -g cli-react-go-mongo-fiber-v2
+npm install -g cli-react-go-mongo-fiber
 ```
 
 Run the CLI to create a new project:

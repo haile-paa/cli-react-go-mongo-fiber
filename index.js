@@ -29,7 +29,6 @@ const createFolderStructure = (projectPath) => {
     `${projectPath}/backend/routes`,
     `${projectPath}/frontend/src`,
     `${projectPath}/frontend/public`,
-    `${projectPath}/shared/utils`,
   ];
 
   folders.forEach((folder) => {
@@ -93,6 +92,33 @@ const initFrontend = (projectPath) => {
     { stdio: "inherit" }
   );
 
+  // Overwrite package.json with the desired structure
+  const frontendPackageJson = {
+    name: "frontend",
+    version: "1.0.0",
+    main: "src/main.jsx",
+    scripts: {
+      dev: "vite",
+      build: "vite build",
+      preview: "vite preview",
+    },
+    keywords: [],
+    author: "",
+    license: "ISC",
+    description: "",
+    dependencies: {
+      react: "^19.0.0",
+      "react-dom": "^19.0.0",
+      tailwindcss: "^3.4.17",
+      vite: "^6.0.7",
+    },
+  };
+
+  fs.writeFileSync(
+    `${frontendPath}/package.json`,
+    JSON.stringify(frontendPackageJson, null, 2) // Format with 2 spaces
+  );
+
   // Create Tailwind CSS configuration
   execSync(`cd ${frontendPath} && npx tailwindcss init`, { stdio: "inherit" });
 
@@ -119,7 +145,8 @@ export default App;
 
   fs.writeFileSync(
     `${frontendPath}/src/main.jsx`,
-    `import { StrictMode } from 'react'; 
+    `import React from 'react'; 
+import { StrictMode } from 'react'; 
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App.jsx';
@@ -129,7 +156,24 @@ createRoot(document.getElementById('root')).render(
     <App />
   </StrictMode>,
 );
-    `
+  `
+  );
+
+  // Create index.html file
+  fs.writeFileSync(
+    `${frontendPath}/index.html`,
+    `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PA App</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>`
   );
 
   fs.writeFileSync(
@@ -169,10 +213,7 @@ To start the project, follow these steps:
 2. Navigate to the frontend folder:
    cd frontend
 
-3. Install the frontend dependencies (if not already installed):
-   npm install
-
-4. Run the development server:
+3. Run the development server:
    npm run dev
 `);
 };
