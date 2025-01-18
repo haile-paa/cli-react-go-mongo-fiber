@@ -44,7 +44,7 @@ const initBackend = (projectPath) => {
 
   // Initialize Go module and install dependencies
   execSync(
-    `cd ${backendPath} && go mod init backend && go get github.com/gofiber/fiber/v2 go.mongodb.org/mongo-driver`,
+    `cd ${backendPath} && go mod init backend && go get github.com/gofiber/fiber/v2 go.mongodb.org/mongo-driver `,
     {
       stdio: "inherit",
     }
@@ -58,6 +58,7 @@ import (
     "github.com/gofiber/fiber/v2"
     "go.mongodb.org/mongo-driver/mongo"
     "go.mongodb.org/mongo-driver/mongo/options"
+    "log"
 )
 
 func main() {
@@ -68,6 +69,14 @@ func main() {
     if err != nil {
         panic(err)
     }
+
+    // Ensure the connection is established
+    err = client.Ping(nil, nil)
+    if err != nil {
+        panic(err)
+    }
+
+    log.Println("MongoDB connection established successfully")
 
     // Example route
     app.Get("/", func(c *fiber.Ctx) error {
@@ -207,6 +216,7 @@ const main = async () => {
   // Display instructions for running the project
   console.log(`
 To start the project, follow these steps:
+
 1. Navigate to the project folder:
    cd ${projectName}
    
@@ -215,6 +225,23 @@ To start the project, follow these steps:
 
 3. Run the development server:
    npm run dev
+
+For the backend server:
+
+1. Navigate to the project folder:
+   cd ${projectName}
+
+2. Navigate to the backend folder:
+   cd backend
+
+3. Run the following commands to set up and start the Go server:
+
+   a. Clean up the Go module dependencies:
+      go mod tidy
+
+   b. Start the Go server:
+      go run main.go
+
 `);
 };
 
