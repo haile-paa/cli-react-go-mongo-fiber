@@ -43,12 +43,9 @@ const initBackend = (projectPath) => {
   const backendPath = `${projectPath}/backend`;
 
   // Initialize Go module and install dependencies
-  execSync(
-    `cd ${backendPath} && go mod init backend && go get github.com/gofiber/fiber/v2 go.mongodb.org/mongo-driver `,
-    {
-      stdio: "inherit",
-    }
-  );
+  execSync(`cd ${backendPath} && go mod init backend `, {
+    stdio: "inherit",
+  });
 
   fs.writeFileSync(
     `${backendPath}/main.go`,
